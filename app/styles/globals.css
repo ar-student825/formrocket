@@ -44,6 +44,7 @@ a {
 #type {
   padding: 5px;
   background-color: rgb(30, 0, 112);
+  border-radius: 7px !important;
 }
 
 #type::before {
