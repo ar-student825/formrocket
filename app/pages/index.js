@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
 import Typed from 'typed.js'
+import {CircularProgress} from "@material-ui/core"
 export default function Home() {
   useEffect(()=>{
     var typed = new Typed('#type', {
@@ -25,7 +26,7 @@ export default function Home() {
       <main className={styles.main}>
         <h2>COMING NEXT YEAR</h2>
         <div id="imagecontainer">
-
+          <CircularProgress />
         </div>
         <h1 className={styles.title}>
           Forms, <span id="type">Your Way</span> 🚀
