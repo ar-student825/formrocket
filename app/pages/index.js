@@ -25,6 +25,7 @@ export default function Home() {
        
                     <p>
                         Logged in as {session.user.name || session.user.email}
+                        {JSON.stringify(session.user)}
                     </p>
                     <button onClick={signOut}>Logout</button> <br />
       </>
