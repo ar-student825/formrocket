@@ -20,7 +20,7 @@ export default function Home() {
   },[])
 
 
-  if (session && !loading) {
+  if (session) {
     return (
       <>
        
@@ -32,11 +32,7 @@ export default function Home() {
       </>
     )
     }
-
-    if (loading) {
-      return (<><p>loading plz wait</p></>)
-    }
-    if (!session && !loading) {
+    if (!session) {
   return (
     <div className={styles.container}>
       <Head>
