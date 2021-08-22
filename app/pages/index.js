@@ -19,6 +19,10 @@ export default function Home() {
     document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   },[])
 
+  if (loading) {
+    return <p>loading</p>
+  }
+
   if (session) {
     return (
       <>
@@ -31,9 +35,7 @@ export default function Home() {
       </>
     )
   }
-  if (loading) {
-    return <p>loading</p>
-  }
+
   return (
     <div className={styles.container}>
       <Head>
