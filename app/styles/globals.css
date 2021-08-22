@@ -40,3 +40,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#type {
+  padding: 5px;
+  background-color: rgb(30, 0, 112);
+}
+
+#type::before {
+  filter: blur(20px)
+}
