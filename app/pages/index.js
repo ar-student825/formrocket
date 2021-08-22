@@ -6,26 +6,21 @@ import Typed from 'typed.js'
 import {CircularProgress} from "@material-ui/core"
 import { useSession, signIn, signOut } from "next-auth/client";
 export default function Home() {
+
+  useEffect(()=>{
+    var typed = new Typed('#type', {
+      strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
+      typeSpeed: 40,
+      smartBackspace: true,
+      backDelay: 1000,
+      backSpeed: 40
+    })
+    // Bypass the Next.js "<Image>" requirement
+    document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
+  },[])
   const [session, loading] = useSession();
-
-
-  
     if (loading) return null
-
-    
-      
     if (!loading && !session) {
-      useEffect(()=>{
-        var typed = new Typed('#type', {
-          strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
-          typeSpeed: 40,
-          smartBackspace: true,
-          backDelay: 1000,
-          backSpeed: 40
-        })
-        // Bypass the Next.js "<Image>" requirement
-        document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
-      },[])
   return (
     <div className={styles.container}>
       <Head>
