@@ -19,10 +19,6 @@ export default function Home() {
     document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   },[])
 
-  if (loading) {
-    return <p>loading</p>
-  }
-
   if (session) {
     return (
       <>
@@ -34,8 +30,8 @@ export default function Home() {
                     <button onClick={signOut}>Logout</button> <br />
       </>
     )
-  }
-
+    }
+    if (!session && !loading) {
   return (
     <div className={styles.container}>
       <Head>
@@ -67,5 +63,8 @@ export default function Home() {
 
     </div>
   )
+    }
+
+  return <p>loading</p>
 }
 
