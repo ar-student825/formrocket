@@ -2,8 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
+import Typed from 'typed.js'
 export default function Home() {
   useEffect(()=>{
+    var typed = new Typed('#type', {
+      strings: ["The Right Way", "The Easy Way", "The Programmatic Way"],
+      typeSpeed: 40,
+      smartBackspace: true,
+      backDelay: 1000,
+      backSpeed: 40
+    })
     document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   },[])
   return (
@@ -20,7 +28,7 @@ export default function Home() {
 
         </div>
         <h1 className={styles.title}>
-          Forms, Your Way 🚀
+          Forms, <span id="type">Your Way</span> 🚀
         </h1>
 
         <p className={styles.description}>
