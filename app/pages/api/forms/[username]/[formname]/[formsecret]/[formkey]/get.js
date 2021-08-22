@@ -10,14 +10,20 @@ export default function handler(req, res) {
             name: null,
             owner: null,
             responses: {
-                total: 0,
-                all: []
+                total: 1,
+                all: [
+                    {
+                        id: "8f514ec8-4e5c-45d9-a731-7902586ed55a",
+                        data: {
+                            "myInput": "myValue"
+                        }
+                    }
+                ]
             }
           },
           postedData: null
         }
       })
     }
-  
-    }
+}
     
