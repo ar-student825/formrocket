@@ -7,7 +7,7 @@ import {CircularProgress} from "@material-ui/core"
 export default function Home() {
   useEffect(()=>{
     var typed = new Typed('#type', {
-      strings: ["The Right Way", "The Easy Way", "The Programmatic Way"],
+      strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way"],
       typeSpeed: 40,
       smartBackspace: true,
       backDelay: 1000,
@@ -24,12 +24,15 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <noscript>
+          <h1>ALERT - Javascript is EXTREMELY required to run this app.</h1>
+        </noscript>
         <h2>COMING NEXT YEAR</h2>
         <div id="imagecontainer">
           <CircularProgress />
         </div>
         <h1 className={styles.title}>
-          Forms, <span id="type">Your Way</span> 🚀
+          Forms, <span id="type"></span> 🚀
         </h1>
 
         <p className={styles.description}>
