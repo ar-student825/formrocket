@@ -32,6 +32,13 @@ export default function Home() {
       </>
     )
     }
+    if (loading) {
+      return (
+        <>
+        <p>hi</p>
+        </>
+      ) 
+    }
     if (!session) {
   return (
     <div className={styles.container}>
