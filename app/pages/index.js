@@ -13,6 +13,7 @@ export default function Home() {
       backDelay: 1000,
       backSpeed: 40
     })
+    // Bypass the Next.js "<Image>" requirement
     document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   },[])
   return (
@@ -25,16 +26,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <noscript>
-          <h1>ALERT - Javascript is EXTREMELY required to run this app.</h1>
+          <h1>JavaScript is required for everything on FormRocket.</h1>
         </noscript>
         <div id="imagecontainer">
           <CircularProgress style={{color: 'white'}} />
         </div>
         <h2><b>COMING SOON</b></h2>
         <h1 className={styles.title}>
-          <noscript>
-            No, I mean it, enable JS, what is that:
-          </noscript>
           Forms, <span id="type"></span> 🚀
         </h1>
 
