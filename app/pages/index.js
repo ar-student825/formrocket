@@ -29,7 +29,7 @@ export default function Home() {
         </noscript>
         <h2>COMING NEXT YEAR</h2>
         <div id="imagecontainer">
-          <CircularProgress />
+          <CircularProgress style={{color: 'white'}} />
         </div>
         <h1 className={styles.title}>
           Forms, <span id="type"></span> 🚀
