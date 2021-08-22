@@ -47,7 +47,7 @@ a {
 
 #type {
   padding: 15px;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 7px !important;
 }
 
