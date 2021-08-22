@@ -20,18 +20,7 @@ export default function Home() {
   },[])
 
 
-  if (session) {
-    return (
-      <>
-       
-                    <p>
-                        Logged in as {session.user.name || session.user.email}
-                        {JSON.stringify(session.user)}
-                    </p>
-                    <button onClick={signOut}>Logout</button> <br />
-      </>
-    )
-    }
+  
     if (loading) {
       return (
         <>
@@ -39,7 +28,19 @@ export default function Home() {
         </>
       ) 
     }
-    if (!session) {
+    if (session && !loading) {
+      return (
+        <>
+         
+                      <p>
+                          Logged in as {session.user.name || session.user.email}
+                          {JSON.stringify(session.user)}
+                      </p>
+                      <button onClick={signOut}>Logout</button> <br />
+        </>
+      )
+      }
+    if (!session && !loading) {
   return (
     <div className={styles.container}>
       <Head>
