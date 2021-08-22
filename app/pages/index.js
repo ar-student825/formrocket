@@ -51,7 +51,7 @@ export default function Home() {
             ) : (
                 <>
                     <p>
-                        Logged in as {session.user.name || session.user.email}, email {session.user.email}
+                        Logged in as {session.user.name || session.user.email}
                     </p>
                     <button onClick={signOut}>Logout</button> <br />
                 </>
