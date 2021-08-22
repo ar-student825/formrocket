@@ -51,8 +51,7 @@ export default function Home() {
             ) : (
                 <>
                     <p>
-                        Not {session.user.name || session.user.email}? Then
-                        Logout and login again
+                        Logged in as {session.user.name || session.user.email}, email {session.user.email}
                     </p>
                     <button onClick={signOut}>Logout</button> <br />
                 </>
