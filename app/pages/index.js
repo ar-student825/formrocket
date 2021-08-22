@@ -19,7 +19,7 @@ export default function Home() {
     document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   },[])
 
-  if (session) {
+  if (session && !loading) {
     return (
       <>
        
