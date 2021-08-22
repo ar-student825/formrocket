@@ -30,6 +30,9 @@ export default function Home() {
       </>
     )
   }
+  if (loading) {
+    return <p>loading</p>
+  }
   return (
     <div className={styles.container}>
       <Head>
