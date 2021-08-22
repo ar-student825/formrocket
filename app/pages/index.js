@@ -27,10 +27,10 @@ export default function Home() {
         <noscript>
           <h1>ALERT - Javascript is EXTREMELY required to run this app.</h1>
         </noscript>
-        <h2>COMING NEXT YEAR</h2>
         <div id="imagecontainer">
           <CircularProgress style={{color: 'white'}} />
         </div>
+        <h2><b>COMING SOON</b></h2>
         <h1 className={styles.title}>
           <noscript>
             No, I mean it, enable JS, what is that:
