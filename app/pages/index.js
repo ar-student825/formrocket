@@ -20,7 +20,7 @@ export default function Home() {
   },[])
 
 
-  if (session) {
+  if (session && !loading) {
     return (
       <>
        
