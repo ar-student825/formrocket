@@ -26,7 +26,7 @@ export default function Home() {
 }, 2000)
   },[])
   const [session, loading] = useSession();
-    if (loading) return (<> <CircularProgress style={{color: 'white'}} /> </>)
+    if (loading) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
     if (!loading && !session) {
   return (
     <div className={styles.container}>
