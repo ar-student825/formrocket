@@ -51,4 +51,17 @@ a {
   border-radius: 7px !important;
 }
 
+button::before {
+  filter: blur(20px);
+}
+
+button {
+  padding: 7px;
+  background-color: rgba(55, 18, 139, 0.5);
+  font-family: 'Alliance No 1 Bold', sans-serif;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
 
