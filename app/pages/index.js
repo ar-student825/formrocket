@@ -23,6 +23,10 @@ export default function Home() {
       })
       document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   }
+
+  if (document.getElementById('avatarContainer')) {
+    document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`
+  }
 }, 2000)
   },[])
   const [session, loading] = useSession();
@@ -59,10 +63,12 @@ export default function Home() {
     <>
     <main className={styles.main}></main>
     
-                    <h1 className={styles.title}><Image src={session.user.image} width="100px" height="100px" style={{borderRadius: '50px !important'}} /> Welcome, {session.user.name}</h1>
+                    <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
-                     
+                     <div id="fetchImageUrl" style={{display: 'none'}}>
+                        {session.user.image}
+                     </div>
                   <button onClick={signOut}>Logout</button> <br />
     </>
   )
