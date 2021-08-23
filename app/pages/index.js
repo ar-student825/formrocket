@@ -63,7 +63,7 @@ setTimeout(() => {
 
   return (
     <>
-    <main className={styles.main}></main>
+    <main className={styles.main}>
     
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
@@ -72,6 +72,7 @@ setTimeout(() => {
                         {session.user.image}
                      </div>
                   <button onClick={signOut}>Logout</button> <br />
+                  </main>
     </>
   )
 
