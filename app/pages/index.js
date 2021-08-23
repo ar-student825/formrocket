@@ -5,18 +5,8 @@ import { useEffect } from 'react'
 import Typed from 'typed.js'
 import {CircularProgress} from "@material-ui/core"
 import { useSession, signIn, signOut } from "next-auth/client";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import SweetAlert from 'react-bootstrap-sweetalert';
 export default function Home() {
-  const showComingSoonPopup = () => toast('👀 This feature is coming soon', {
-    position: "bottom-left",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    });
   useEffect(()=>{
     setTimeout(()=>{
     if (document.getElementById('imagecontainer')) {
@@ -64,9 +54,17 @@ setTimeout(() => {
                     <button onClick={() => signIn("github")} id="authMain" style={{display: 'none'}}>
                         Sign in with GitHub
                     </button>
-                    <button onClick={showComingSoonPopup}>
-                        View a Demo
-                    </button>
+                    <SweetAlert
+                        info
+                        title="This feature is coming soon"
+                        onConfirm={this.hideAlert}
+                    >
+                        <button>
+                          View a Demo
+                        </button>
+
+                    </SweetAlert>
+                    
 
       </main>
 
@@ -85,7 +83,16 @@ setTimeout(() => {
                         {session.user.image}
                      </div>
                      <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
-                    <button onClick={showComingSoonPopup}>Create New</button>
+                     <SweetAlert
+                        info
+                        title="This feature is coming soon"
+                        onConfirm={this.hideAlert}
+                    >
+                        <button>
+                          Create
+                        </button>
+
+                    </SweetAlert>
                   <button onClick={signOut}>Logout</button> 
                   </main>
     </>
