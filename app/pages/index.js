@@ -8,6 +8,7 @@ import { useSession, signIn, signOut } from "next-auth/client";
 export default function Home() {
 
   useEffect(()=>{
+    console.log('load script')
     if (document.getElementById('imagecontainer')) {
        new Typed('#type', {
         strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
