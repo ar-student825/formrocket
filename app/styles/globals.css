@@ -57,7 +57,7 @@ button::before {
 
 button {
   padding: 13px;
-  font-size: 30px;
+  font-size: 15px;
   background-color: rgba(55, 18, 139, 0.5);
   font-family: 'Alliance No 1 Bold', sans-serif;
   outline: none;
