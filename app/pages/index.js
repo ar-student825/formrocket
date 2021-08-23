@@ -56,12 +56,11 @@ export default function Home() {
     }
 
   return (
-    <>
-     
-                  <p>
-                      Logged in as {session.user.name || session.user.email}
-                      {JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}
-                  </p>
+    <>              <Image src={session.user.image} width="30px" height="30px" style={{borderRadius: '5px'}} />
+                    <h1 className={styles.title}>Welcome, {session.user.name}</h1>
+                    <p className={styles.description}>Manage your forms</p>
+                      {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
+                     
                   <button onClick={signOut}>Logout</button> <br />
     </>
   )
