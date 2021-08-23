@@ -3,9 +3,13 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
 import Typed from 'typed.js'
-import {CircularProgress} from "@material-ui/core"
+import { CircularProgress, IconButton, Tooltip } from "@material-ui/core"
 import { useSession, signIn, signOut } from "next-auth/client";
 import SweetAlert from 'react-bootstrap-sweetalert';
+import LogIn from '@material-ui/icons/VpnKey';
+import PreView from '@material-ui/icons/Visibility';
+import LogOut from '@material-ui/icons/ExitToApp';
+import NewForm from '@material-ui/icons/AddCircle';
 export default function Home() {
   useEffect(()=>{
     setTimeout(()=>{
@@ -50,13 +54,17 @@ setTimeout(() => {
 
         <p className={styles.description} id="descMain" style={{display: 'none'}}>
         A new way to collect data from HTML forms, and fetch responses from our API.<br />Just <a href="https://copy.ar-dev.cf/?content=%3Cform%20method%3D%22POST%22%20id%3D%22formID%22%20action%3D%22https%3A%2F%2Fformrocket.ar-dev.cf%2Fapi%2Fforms%2F%3Ausername%2F%3AformName%2F%3AformID%2Fpost%22%3E%3Cinput%20name%3D%22myinput%22%20placeholder%3D%22My%20Cool%20Input%22%20%2F%3E%3C%2Fform%3E%0A%3Cscript%3E%0A%20%20%20fetch%28%27https%3A%2F%2Fformrocket.ar-dev.cf%2Fapi%2Fforms%2F%3Ausername%2F%3AformName%2F%3AformID%2Fscript%27%29.then%28res%20%3D%3E%20res.text%28%29%29.then%28%28%29%3D%3E%7Beval%28res%29%7D%29%0A%3C%2Fscript%3E">make your form POST to us</a>, and we handle the rest. No ads, you control it all.
-        </p>
-                    <button onClick={() => signIn("github")} id="authMain" style={{display: 'none'}}>
-                        Sign in with GitHub
-                    </button>
-                        <button>
-                          View a Demo
-                        </button>
+        </p>        
+                  <Tooltip title="Login with GitHub">
+                    <IconButton onClick={() => signIn("github")} id="authMain" style={{display: 'none'}}>
+                        <LogIn />
+                    </IconButton>
+                    </Tooltip>
+                    <Tooltip title="View demo">
+                    <IconButton>
+                        <PreView />
+                    </IconButton>
+                    </Tooltip>
 
 
       </main>
@@ -76,11 +84,17 @@ setTimeout(() => {
                         {session.user.image}
                      </div>
                      <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
-                        <button>
-                          Create
-                        </button>
+                     <Tooltip title="Create new form">
+                    <IconButton>
+                        <NewForm />
+                    </IconButton>
+                    </Tooltip>
 
-                  <button onClick={signOut}>Logout</button> 
+                        <Tooltip title="Logout">
+                    <IconButton onClick={signOut}>
+                        <LogIn />
+                    </IconButton>
+                    </Tooltip>
                   </main>
     </>
   )
