@@ -8,8 +8,10 @@ import { useSession, signIn, signOut } from "next-auth/client";
 export default function Home() {
 
   useEffect(()=>{
-    setTimeout(() => {
-    if (document.getElementById('imagecontainer')) {
+    var isOnMainPage = false
+    while (true) {
+    if (document.getElementById('imagecontainer') && !isOnMainPage) {
+      isOnMainPage = true
        new Typed('#type', {
         strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
         typeSpeed: 40,
@@ -19,7 +21,7 @@ export default function Home() {
       })
       document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
     }
-  }, 2000)
+  }
   },[])
   const [session, loading] = useSession();
     if (loading) return (<> <CircularProgress style={{color: 'white'}} /> </>)
