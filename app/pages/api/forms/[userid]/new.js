@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
+const router = useRouter()
 export default function handler(req, res) {
-    const router = useRouter()
     const reqUserId = router.query.userid
     if (req.method != 'POST') {
       res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
