@@ -54,17 +54,10 @@ setTimeout(() => {
                     <button onClick={() => signIn("github")} id="authMain" style={{display: 'none'}}>
                         Sign in with GitHub
                     </button>
-                    <SweetAlert
-                        info
-                        title="This feature is coming soon"
-                        onConfirm={this.hideAlert}
-                    >
                         <button>
                           View a Demo
                         </button>
 
-                    </SweetAlert>
-                    
 
       </main>
 
@@ -83,16 +76,10 @@ setTimeout(() => {
                         {session.user.image}
                      </div>
                      <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
-                     <SweetAlert
-                        info
-                        title="This feature is coming soon"
-                        onConfirm={this.hideAlert}
-                    >
                         <button>
                           Create
                         </button>
 
-                    </SweetAlert>
                   <button onClick={signOut}>Logout</button> 
                   </main>
     </>
