@@ -30,12 +30,6 @@ export default function Home() {
     if (!loading && !session) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>FormRocket</title>
-        <meta name="description" content="A new way to collect data from HTML forms." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <noscript>
           <h1>JavaScript is required for everything on FormRocket.</h1>
