@@ -72,7 +72,8 @@ setTimeout(() => {
                         {session.user.image}
                      </div>
                      <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
-                  <button onClick={signOut}>Logout</button> <br />
+                    <button onClick={alert('An error occurred: COMING_SOON')}>Create New</button>
+                  <button onClick={signOut}>Logout</button> 
                   </main>
     </>
   )
