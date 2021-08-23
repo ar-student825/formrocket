@@ -101,7 +101,7 @@ setTimeout(() => {
 
                         <Tooltip title="Logout">
                     <IconButton onClick={signOut} className={s.white}>
-                        <LogIn className={s.white} />
+                        <LogOut className={s.white} />
                     </IconButton>
                     </Tooltip>
                     </div>
