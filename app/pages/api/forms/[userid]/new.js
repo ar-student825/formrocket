@@ -12,7 +12,8 @@ export default function handler(req, res) {
           form: {
             name: req.body.formName,
             ownerId: parseInt(reqUserId),
-            formId: 9999999 
+            formId: 9999999,
+            createdAt: +Date.now()
           }
         }
       })
