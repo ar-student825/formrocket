@@ -5,8 +5,18 @@ import { useEffect } from 'react'
 import Typed from 'typed.js'
 import {CircularProgress} from "@material-ui/core"
 import { useSession, signIn, signOut } from "next-auth/client";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Home() {
-
+  const showComingSoonPopup = () => toast('👀 This feature is coming soon', {
+    position: "bottom-left",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
   useEffect(()=>{
     setTimeout(()=>{
     if (document.getElementById('imagecontainer')) {
@@ -54,6 +64,9 @@ setTimeout(() => {
                     <button onClick={() => signIn("github")} id="authMain" style={{display: 'none'}}>
                         Sign in with GitHub
                     </button>
+                    <button onClick={showComingSoonPopup}>
+                        View a Demo
+                    </button>
 
       </main>
 
@@ -72,7 +85,7 @@ setTimeout(() => {
                         {session.user.image}
                      </div>
                      <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
-                    <button onClick={alert('An error occurred: COMING_SOON')}>Create New</button>
+                    <button onClick={showComingSoonPopup}>Create New</button>
                   <button onClick={signOut}>Logout</button> 
                   </main>
     </>
