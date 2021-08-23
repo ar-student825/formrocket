@@ -23,11 +23,13 @@ export default function Home() {
       })
       document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   }
+}, 2000)
 
+setTimeout(() => {
   if (document.getElementById('avatarContainer')) {
     document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`
   }
-}, 2000)
+}, 100)
   },[])
   const [session, loading] = useSession();
     if (loading) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
