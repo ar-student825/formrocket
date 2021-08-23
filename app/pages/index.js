@@ -29,7 +29,7 @@ setTimeout(() => {
   if (document.getElementById('avatarContainer')) {
     document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`
   }
-}, 100)
+}, 1000)
   },[])
   const [session, loading] = useSession();
     if (loading) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
