@@ -58,8 +58,8 @@ export default function Home() {
   return (
     <>
     <main className={styles.main}></main>
-    <Image src={session.user.image} width="30px" height="30px" style={{borderRadius: '5px'}} />
-                    <h1 className={styles.title}>Welcome, {session.user.name}</h1>
+    
+                    <h1 className={styles.title}><Image src={session.user.image} width="2rem" height="2rem" style={{borderRadius: '5px'}} /> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
                      
