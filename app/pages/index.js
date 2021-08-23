@@ -17,7 +17,7 @@ const Styles = makeStyles((theme) => ({
   }
 }));
 export default function Home() {
-  const styles = Styles()
+  const s = Styles()
   useEffect(()=>{
     setTimeout(()=>{
     if (document.getElementById('imagecontainer')) {
@@ -68,8 +68,8 @@ setTimeout(() => {
                     </IconButton>
                     </Tooltip>
                     <Tooltip title="View demo">
-                    <IconButton className={styles.white}>
-                        <PreView className={styles.white} />
+                    <IconButton className={s.white}>
+                        <PreView className={s.white} />
                     </IconButton>
                     </Tooltip>
                     </div>
@@ -94,14 +94,14 @@ setTimeout(() => {
                      <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
                      <div className={styles.btns}>
                      <Tooltip title="Create new form">
-                    <IconButton className={styles.white}>
-                        <NewForm className={styles.white} />
+                    <IconButton className={s.white}>
+                        <NewForm className={s.white} />
                     </IconButton>
                     </Tooltip>
 
                         <Tooltip title="Logout">
-                    <IconButton onClick={signOut} className={styles.white}>
-                        <LogIn />
+                    <IconButton onClick={signOut} className={s.white}>
+                        <LogIn className={s.white} />
                     </IconButton>
                     </Tooltip>
                     </div>
