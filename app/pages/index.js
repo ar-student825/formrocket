@@ -17,7 +17,7 @@ export default function Home() {
         backSpeed: 40
       })
       document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
-    } else return
+    }
   },[])
   const [session, loading] = useSession();
     if (loading) return (<> <CircularProgress style={{color: 'white'}} /> </>)
