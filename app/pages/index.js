@@ -19,7 +19,7 @@ export default function Home() {
       })
       document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
     }
-  }, 4000)
+  }, 2000)
   },[])
   const [session, loading] = useSession();
     if (loading) return (<> <CircularProgress style={{color: 'white'}} /> </>)
