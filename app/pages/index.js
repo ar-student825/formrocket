@@ -71,6 +71,7 @@ setTimeout(() => {
                      <div id="fetchImageUrl" style={{display: 'none'}}>
                         {session.user.image}
                      </div>
+                     <p><b>Oof, </b> there isn&apos;t forms here yet. [Coming soon]</p>
                   <button onClick={signOut}>Logout</button> <br />
                   </main>
     </>
