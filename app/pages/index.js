@@ -60,7 +60,7 @@ export default function Home() {
      
                   <p>
                       Logged in as {session.user.name || session.user.email}
-                      {JSON.stringify(session.user)}
+                      {JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}
                   </p>
                   <button onClick={signOut}>Logout</button> <br />
     </>

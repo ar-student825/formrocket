@@ -33,7 +33,6 @@ export default (req, res) =>
                 // Sort by primary email - the user may have several emails, but only one of them will be primary
                 const sortedEmails = emails.sort((a, b) => b.primary - a.primary)
                 profile.email = sortedEmails[0].email
-                profile.id = profile.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]
               },
         },
     });
