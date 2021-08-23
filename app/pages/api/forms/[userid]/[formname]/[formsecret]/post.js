@@ -7,9 +7,11 @@ export default function handler(req, res) {
     res.json({ error: {code: "INVALID_REQUEST", data: "Expected FormDataObject, got null or invalid type."}})
   } else if (!parseInt(req.query.formsecret)) {
     res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formSecret, got invalid."} })
-  } else if (!await db.get('users.' + req.query.userid)) {
-    res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
   } else {
+    db.get('users.' + req.query.userid).then(i => {
+      if (!i) {
+        res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
+      } else {
     res.status(200).json({
       success: true,
       data: {
@@ -22,6 +24,8 @@ export default function handler(req, res) {
         postedData: req.body
       }
     })
+  }
+  })
   }
 }
   
