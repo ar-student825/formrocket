@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(()=>{
     if (document.getElementById('imagecontainer')) {
-      var typed = new Typed('#type', {
+       new Typed('#type', {
         strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
         typeSpeed: 40,
         smartBackspace: true,
