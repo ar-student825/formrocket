@@ -8,15 +8,17 @@ import { useSession, signIn, signOut } from "next-auth/client";
 export default function Home() {
 
   useEffect(()=>{
-    var typed = new Typed('#type', {
-      strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
-      typeSpeed: 40,
-      smartBackspace: true,
-      backDelay: 1000,
-      backSpeed: 40
-    })
     // Bypass the Next.js "<Image>" requirement
-    document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
+    if (document.getElementById('imagecontainer')) {
+      var typed = new Typed('#type', {
+        strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
+        typeSpeed: 40,
+        smartBackspace: true,
+        backDelay: 1000,
+        backSpeed: 40
+      })
+      document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
+    } else return
   },[])
   const [session, loading] = useSession();
     if (loading) return null
