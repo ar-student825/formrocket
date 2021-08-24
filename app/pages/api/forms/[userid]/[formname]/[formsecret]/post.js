@@ -3,7 +3,7 @@ const db = new Database(`mongodb+srv://arcodez:${process.env.MONGODB}@cluster0.0
 export default function handler(req, res) {
   if (req.method != 'POST') {
     res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
-  } else if (!req.body || typeof req.body != 'object') {
+  } else if (!req.body == {} || typeof req.body != 'object') {
     res.json({ error: {code: "INVALID_REQUEST", data: "Expected FormDataObject, got null or invalid type."}})
   } else if (!parseInt(req.query.formsecret)) {
     res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formSecret, got invalid."} })
