@@ -10,18 +10,19 @@ export default function handler(req, res) {
   } else {
     db.get('users').then(users => {
       if (!users[req.query.userid]) {
+        db.set('users.74219764', {
+          name: "AR",
+          image: "https://avatars.githubusercontent.com/u/74219764?v=4",
+          id: 74219764,
+          createdAt: +Date.now(),
+          forms: {
+            total: 0,
+            all: []
+          }
+        })
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
-        db.set('users.74219764', {
-      name: "AR",
-      image: "https://avatars.githubusercontent.com/u/74219764?v=4",
-      id: 74219764,
-      createdAt: +Date.now(),
-      forms: {
-        total: 0,
-        all: []
-      }
-    })
+     
         
     res.status(200).json({
       success: true,
