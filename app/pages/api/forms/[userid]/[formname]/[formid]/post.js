@@ -8,11 +8,10 @@ export default function handler(req, res) {
   } else if (!parseInt(req.query.formid)) {
     res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formId, got invalid."} })
   } else {
-    db.get('users.' + req.query.userid).then(user => {
-      if (!user) {
+    db.get('users').then(users => {
+      if (!users[req.query.userid]) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
-        /*
         db.set('users.74219764', {
       name: "AR",
       image: "https://avatars.githubusercontent.com/u/74219764?v=4",
@@ -23,7 +22,7 @@ export default function handler(req, res) {
         all: []
       }
     })
-        */
+        
     res.status(200).json({
       success: true,
       data: {
