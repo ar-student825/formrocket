@@ -25,7 +25,7 @@ export default function handler(req, res) {
             }
           }).then(obj => {
             db.set('users.'+req.query.userid, obj)
-            db.add('users.' + req.query.userid + '.forms.total', 1)
+            db.set('users.' + req.query.userid + '.forms.all', user.forms.all + 1)
             res.status(200).json(obj)
           })
       
