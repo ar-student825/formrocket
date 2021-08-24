@@ -7,8 +7,8 @@ export default function handler(req, res) {
     } else if (!req.body || !req.body.formName || typeof req.body.formName != 'string') {
       res.status(400).json({ error: {code: "INVALID_REQUEST", data: "Expected formName, got null or invalid type."}})
     } else {
-      db.get('users.' + req.query.userid).then(user => {
-        if (!user) {
+      db.get('users').then(users => {
+        if (!user[req.query.userid]) {
           res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
         } else {
           var formId = Math.floor(Math.random() * 99999999)
@@ -26,7 +26,7 @@ export default function handler(req, res) {
           }).then(obj => {
             console.log(user)
             db.set('users.'+req.query.userid, obj).then(i => {
-            db.set('users.' + req.query.userid + '.forms.total', user.forms.total + 1).then(o => {
+            db.set('users.' + req.query.userid + '.forms.total', users[req.query.userid] + 1).then(o => {
             res.status(200).json(o)
             })
           })
