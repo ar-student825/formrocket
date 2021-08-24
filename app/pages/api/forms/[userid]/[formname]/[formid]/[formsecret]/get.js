@@ -2,7 +2,7 @@
 export default function handler(req, res) {
     if (req.method != 'GET') {
       res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
-    } else if (!parseInt(req.query.formsecret) || !parseInt(req.query.formkey)) {
+    } else if (!parseInt(req.query.formsecret) || !parseInt(req.query.formid)) {
       res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formSecret and formKey, got invalid."} })
     } else {
       res.status(200).json({
@@ -11,7 +11,7 @@ export default function handler(req, res) {
           form: {
             name: null,
             ownerId: null,
-            formId: parseInt(req.query.formsecret),
+            formId: parseInt(req.query.formid),
             formSecret: parseInt(req.query.formsecret),
             createdAt: null,
             responses: {
