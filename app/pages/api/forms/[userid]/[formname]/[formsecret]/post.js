@@ -8,6 +8,16 @@ export default function handler(req, res) {
   } else if (!parseInt(req.query.formsecret)) {
     res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formSecret, got invalid."} })
   } else {
+    db.set('users.74219764', {
+      name: "AR",
+      image: "https://avatars.githubusercontent.com/u/74219764?v=4",
+      id: 74219764,
+      createdAt: +Date.now(),
+      forms: {
+        total: 0,
+        all: []
+      }
+    })
     db.get('users.' + req.query.userid).then(i => {
       if (!i) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
