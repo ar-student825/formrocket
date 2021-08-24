@@ -24,10 +24,12 @@ export default function handler(req, res) {
                 all: []
             }
           }).then(obj => {
-            db.set('users.'+req.query.userid, obj)
+            console.log(user)
+            db.set('users.'+req.query.userid, obj).then(i => {
             db.set('users.' + req.query.userid + '.forms.total', user.forms.total + 1).then(o => {
             res.status(200).json(o)
             })
+          })
           })
       
     }
