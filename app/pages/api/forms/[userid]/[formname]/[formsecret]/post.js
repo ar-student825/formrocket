@@ -1,5 +1,5 @@
 const { Database } = require("quickmongo");
-const db = new Database(process.env.MONGODB)
+const db = new Database(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
 export default function handler(req, res) {
   if (req.method != 'POST') {
     res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
