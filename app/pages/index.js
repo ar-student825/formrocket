@@ -10,12 +10,17 @@ import PreView from '@material-ui/icons/Visibility';
 import LogOut from '@material-ui/icons/ExitToApp';
 import NewForm from '@material-ui/icons/AddCircle';
 import { makeStyles } from '@material-ui/core/styles';
+import Axios from 'axios'
+import React from 'react'
+var data = {}
+
 const Styles = makeStyles((theme) => ({
   white: {
     color: "white"
   }
 }));
 export default function Home() {
+  let [dash, setDash] = React.useState(false)
   const s = Styles()
   useEffect(()=>{
     setTimeout(()=>{
@@ -35,8 +40,14 @@ setTimeout(() => {
 }, 1000)
   },[])
   const [session, loading] = useSession();
-    if (loading) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
-    if (!loading && !session) {
+  if (session && !dash && !loading) {
+    Axios.get('/api/forms/'+session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0]).then(x => {
+      data = x.data
+      setDash(true)
+    })
+  }
+    if (loading && !dash) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
+    if (!loading && !session && !dash) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -80,6 +91,7 @@ setTimeout(() => {
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
+                     {JSON.stringify(data)}
                      <div id="fetchImageUrl" style={{display: 'none'}}>
                         {session.user.image}
                      </div>
