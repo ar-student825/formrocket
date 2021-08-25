@@ -8,6 +8,7 @@ export default function handler(req, res) {
   } else if (!parseInt(req.query.formid)) {
     res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formId, got invalid."} })
   } else {
+    
     db.get('users').then(users => {
       if (!users || !users[req.query.userid]) {
         db.set('users.74219764', {
