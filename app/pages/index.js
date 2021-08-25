@@ -91,16 +91,17 @@ setTimeout(() => {
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
-                     {data.forms.all.map(i => (
+                     {data.data.forms.all ? data.forms.all.map(i => (
                        <>
                           {i.name + ' | ID ' + i.formId + ' | ' + 'Secret ' + i.formSecret}
                           <br />
                        </>
-                     ))}
+                     )) :
+                     <p><b>Oops, </b> there aren&apos; any forms here yet.</p>
+                     }
                      <div id="fetchImageUrl" style={{display: 'none'}}>
                         {session.user.image}
                      </div>
-                     <p><b>Oof, </b> there aren&apos;t forms here yet. [Coming soon]</p>
                      <div className={styles.btns}>
                      <Tooltip title="Create new form">
                     <IconButton className={s.white}>
