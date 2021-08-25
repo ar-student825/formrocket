@@ -41,7 +41,7 @@ setTimeout(() => {
   },[])
   const [session, loading] = useSession();
   if (session && !dash && !loading) {
-    Axios.get('/api/forms/'+session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0]).then(x => {
+    Axios.get('/api/forms/'+session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] + '/info').then(x => {
       data = x.data
       setDash(true)
     })
