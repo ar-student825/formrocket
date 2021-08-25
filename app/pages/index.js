@@ -44,6 +44,20 @@ setTimeout(() => {
     Axios.get('/api/forms/'+session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] + '/info').then(x => {
       data = x.data
       setDash(true)
+    }).catch(e => {
+      data = {
+        name: "Unauthorized",
+        id: 0,
+        forms: {
+          all: [
+            {
+              name: 'Oops',
+              formId: 'You do not have beta access',
+              formSecret: 'Your account does not exist in the database, only beta testers can use FormRocket ATM.'
+            }
+          ]
+        }
+      }
     })
   }
     if (loading || (!dash && session)) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
