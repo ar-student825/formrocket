@@ -94,6 +94,7 @@ setTimeout(() => {
                      {data.forms.all.map(i => (
                        <>
                           {i.name + ' | ID ' + i.formId + ' | ' + 'Secret ' + i.formSecret}
+                          <br />
                        </>
                      ))}
                      <div id="fetchImageUrl" style={{display: 'none'}}>
