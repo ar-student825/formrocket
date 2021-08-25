@@ -8,7 +8,7 @@ export default function handler(req, res) {
       res.status(400).json({ error: {code: "INVALID_REQUEST", data: "Expected formName, got null or invalid type."}})
     } else {
       db.get('users').then(users => {
-        if (!user[req.query.userid]) {
+        if (!users[req.query.userid]) {
           res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
         } else {
           var formId = Math.floor(Math.random() * 99999999)
