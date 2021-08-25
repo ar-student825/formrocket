@@ -25,9 +25,7 @@ export default function handler(req, res) {
             }
           }).then(obj => {
             db.set('users', obj).then(i => {
-            db.set('users.' + req.query.userid + '.forms.total', users[req.query.userid].forms.total + 1).then(o => {
-            res.status(200).json(o)
-            })
+            res.status(200).json({"success": true, "data": {"allForms": obj[req.query.userid.toString()].forms.all}})
           })
           })
       
