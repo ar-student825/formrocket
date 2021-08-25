@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
-import Typed from 'typed.js'
 import { CircularProgress, IconButton, Tooltip } from "@material-ui/core"
 import { useSession, signIn, signOut } from "next-auth/client";
 import SweetAlert from 'react-bootstrap-sweetalert';
@@ -25,13 +24,6 @@ export default function Home() {
       document.getElementById('csMain').style.display = "initial"
       document.getElementById('btnsMain').style.display = "initial"
       document.getElementById('descMain').style.display = "initial"
-       new Typed('#type', {
-        strings: ["Your Way", "The Right Way", "The Easy Way", "The Programmatic Way", "The Custom Way", "The Serverless Way"],
-        typeSpeed: 40,
-        smartBackspace: true,
-        backDelay: 1000,
-        backSpeed: 40
-      })
       document.getElementById('imagecontainer').innerHTML = `<center><img src="/files/form.svg" width="50%" /></center>`
   }
 }, 2000)
@@ -56,7 +48,7 @@ setTimeout(() => {
         </div>
         <h2 id="csMain" style={{display: 'none'}}><b>COMING SOON</b></h2>
         <h1 className={styles.title} id="titleMain" style={{display: 'none'}}>
-          Forms, <span id="type"></span> 🚀
+          Forms, <span id="type">Done Right</span> 🚀
         </h1>
 
         <p className={styles.description} id="descMain" style={{display: 'none'}}>
