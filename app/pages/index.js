@@ -58,6 +58,8 @@ setTimeout(() => {
           ]
         }
       }
+
+      setDash(true)
     })
   }
     if (loading || (!dash && session)) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
