@@ -13,8 +13,6 @@ export default function handler(req, res) {
       if (!users || !users[req.query.userid]) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
-     
-        
     res.status(200).json({
       success: true,
       data: {
