@@ -83,7 +83,7 @@ setTimeout(() => {
     </div>
   )
     }
-    if (!loading && session && data && dash) {
+    if (!loading && dash) {
   return (
     <>
     <main className={styles.main}>
