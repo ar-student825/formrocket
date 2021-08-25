@@ -91,7 +91,11 @@ setTimeout(() => {
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
-                     {JSON.stringify(data)}
+                     {data.forms.all.map(i => (
+                       <>
+                          {i.name + ' | ID ' + i.formId + ' | ' + 'Secret ' + i.formSecret}
+                       </>
+                     ))}
                      <div id="fetchImageUrl" style={{display: 'none'}}>
                         {session.user.image}
                      </div>
