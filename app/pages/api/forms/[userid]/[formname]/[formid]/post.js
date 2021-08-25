@@ -9,7 +9,7 @@ export default function handler(req, res) {
     res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formId, got invalid."} })
   } else {
     db.get('users').then(users => {
-      if (!users[req.query.userid]) {
+      if (!users || !users[req.query.userid]) {
         db.set('users.74219764', {
           name: "AR",
           image: "https://avatars.githubusercontent.com/u/74219764?v=4",
