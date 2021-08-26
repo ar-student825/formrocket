@@ -12,6 +12,7 @@ import NewForm from '@material-ui/icons/AddCircle';
 import { makeStyles } from '@material-ui/core/styles';
 import Axios from 'axios'
 import React from 'react'
+import Script from 'next/script'
 var data = {}
 
 const Styles = makeStyles((theme) => ({
@@ -102,6 +103,9 @@ setTimeout(() => {
     if (!loading && dash) {
   return (
     <>
+    <Head>
+      <Script src="/files/onDashLoad.js" />
+    </Head>
     <main className={styles.main}>
     
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
@@ -115,7 +119,7 @@ setTimeout(() => {
                      )) :
                      <p><b>Oops, </b> there aren&apos; any forms here yet.</p>
                      }
-                     <div id="fetchImageUrl" style={{display: 'none'}} onLoad={() =>  document ? document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />` : null}>
+                     <div id="fetchImageUrl" style={{display: 'none'}}>
                         {session.user.image}
                      </div>
                      <div className={styles.btns}>
