@@ -66,7 +66,7 @@ setTimeout(() => {
     if (!loading && !session && !dash) {
   return (
     <div className={styles.container}>
-      <main className={styles.main} onLoad={() =>  document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`}>
+      <main className={styles.main}>
         <noscript>
           <h1>JavaScript is required for everything on FormRocket.</h1>
         </noscript>
@@ -102,7 +102,7 @@ setTimeout(() => {
     if (!loading && dash) {
   return (
     <>
-    <main className={styles.main}>
+    <main className={styles.main}  onLoad={() =>  document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`}>
     
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
