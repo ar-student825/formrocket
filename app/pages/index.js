@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
-import { CircularProgress, IconButton, Tooltip } from "@material-ui/core"
+import { CircularProgress, IconButton, Tooltip, Paper } from "@material-ui/core"
 import { useSession, signIn, signOut } from "next-auth/client";
 import SweetAlert from 'react-bootstrap-sweetalert';
 import LogIn from '@material-ui/icons/VpnKey';
@@ -53,8 +53,8 @@ setTimeout(() => {
           all: [
             {
               name: 'Oops',
-              formId: 'You do not have beta access',
-              formSecret: 'Your account does not exist in the database, only beta testers can use FormRocket ATM.'
+              formId: 'Err',
+              formSecret: 'An error occured'
             }
           ]
         }
@@ -110,8 +110,11 @@ setTimeout(() => {
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
                      {data.forms.all ? data.forms.all.map(i => (
                        <>
-                          {i.name + ' | ID ' + i.formId + ' | ' + 'Secret ' + i.formSecret}
-                          <br />
+                       <Paper variant="outlined" elevation={3}>
+                         <h3>{i.name}</h3>
+                         <p><b>{i.formId}</b></p>
+                         <p>{i.formSecret}</p>
+                       </Paper>
                        </>
                      )) :
                      <p><b>Oops, </b> there aren&apos; any forms here yet.</p>
