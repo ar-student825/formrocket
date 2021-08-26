@@ -102,7 +102,7 @@ setTimeout(() => {
     if (!loading && dash) {
   return (
     <>
-    <main className={styles.main}  onLoad={() =>  document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`}>
+    <main className={styles.main}>
     
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
@@ -115,7 +115,7 @@ setTimeout(() => {
                      )) :
                      <p><b>Oops, </b> there aren&apos; any forms here yet.</p>
                      }
-                     <div id="fetchImageUrl" style={{display: 'none'}}>
+                     <div id="fetchImageUrl" style={{display: 'none'}} onLoad={() =>  document ? document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />` : null}>
                         {session.user.image}
                      </div>
                      <div className={styles.btns}>
