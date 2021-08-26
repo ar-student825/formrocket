@@ -34,12 +34,6 @@ export default function Home() {
 }, 2000)
 
 setTimeout(() => {
-  if (document.getElementById('avatarContainer')) {
-    document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`
-  }
-}, 1000)
-
-setTimeout(() => {
   if (document.getElementById('firstLoad')) {
     window.location.reload()
   }
@@ -72,7 +66,7 @@ setTimeout(() => {
     if (!loading && !session && !dash) {
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main className={styles.main} onLoad={() =>  document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`}>
         <noscript>
           <h1>JavaScript is required for everything on FormRocket.</h1>
         </noscript>
