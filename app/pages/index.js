@@ -120,7 +120,10 @@ setTimeout(() => {
                      </div>
                      <div className={styles.btns}>
                      <Tooltip title="Create new form">
-                    <IconButton className={s.white} onClick={() => console.log('click new form btn')}>
+                    <IconButton className={s.white} onClick={() => { 
+                      console.log('click new form btn')
+                      document ? document.getElementById('comingSoonText').style.display = 'initial' : null
+                    }}>
                         <NewForm className={s.white} />
                     </IconButton>
                     </Tooltip>
@@ -130,6 +133,7 @@ setTimeout(() => {
                         <LogOut className={s.white} />
                     </IconButton>
                     </Tooltip>
+                    <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
                     </div>
                   </main>
     </>
