@@ -1,11 +1,15 @@
 const { Database } = require("quickmongo");
+import { getSession } from 'next-auth/client'
 const db = new Database(`mongodb+srv://arcodez:${process.env.MONGODB}@cluster0.06v7y.mongodb.net/formrocket?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
 export default function handler(req, res) {
+  const session = await getSession({ req })
     const reqUserId = req.query.userid
     if (req.method != 'POST') {
       res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
     } else if (!req.body || !req.body.formName || typeof req.body.formName != 'string') {
       res.status(400).json({ error: {code: "INVALID_REQUEST", data: "Expected formName, got null or invalid type."}})
+    } else if (!session || session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] != req.query.userid) {
+      res.status(401).json({ error: {code: "UNAUTHORIZED", message: "Expected target userId to be the same as userId of the logged in user, got different or null due to not being logged in."}})
     } else {
       db.get('users').then(users => {
         if (!users[req.query.userid]) {
