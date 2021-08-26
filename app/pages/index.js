@@ -38,6 +38,12 @@ setTimeout(() => {
     document.getElementById('avatarContainer').innerHTML = `<img src="${document.getElementById('fetchImageUrl').innerHTML}" width="100px" height="100px" style="border-radius: 50px !important" />`
   }
 }, 1000)
+
+setTimeout(() => {
+  if (document.getElementById('firstLoad')) {
+    window.location.reload()
+  }
+}, 5000)
   },[])
   const [session, loading] = useSession();
   if (session && !dash && !loading) {
@@ -62,7 +68,7 @@ setTimeout(() => {
       setDash(true)
     })
   }
-    if (loading || (!dash && session)) return (<> <main className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
+    if (loading || (!dash && session)) return (<> <main id="firstLoad" className={styles.main}><CircularProgress style={{color: 'white'}} /></main> </>)
     if (!loading && !session && !dash) {
   return (
     <div className={styles.container}>
