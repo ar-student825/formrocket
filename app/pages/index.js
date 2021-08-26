@@ -104,7 +104,7 @@ setTimeout(() => {
   return (
     <>
     <Head>
-      <Script src="/files/onDashLoad.js" />
+      <script src="/files/onDashLoad.js" type="text/javascript" />
     </Head>
     <main className={styles.main}>
     
