@@ -8,7 +8,7 @@ const db = new Database(`mongodb+srv://arcodez:${process.env.MONGODB}@cluster0.0
 // Initializing the cors middleware
 const cors = Cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'HEAD'],
-  origin: ["https://3000-kumquat-orca-okj4ogpq.ws-us15.gitpod.io", "https://gui.formrocket.me"]
+  origin: ["https://3000-kumquat-orca-okj4ogpq.ws-us15.gitpod.io/*", "https://gui.formrocket.me/*"]
 })
 
 // Helper method to wait for a middleware to execute before continuing
