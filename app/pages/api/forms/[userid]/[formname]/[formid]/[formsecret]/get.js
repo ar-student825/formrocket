@@ -1,5 +1,24 @@
+import Cors from 'cors'
+const cors = Cors({
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'HEAD'],
+  origin: ["https://3000-kumquat-orca-okj4ogpq.ws-us15.gitpod.io", "https://gui.formrocket.me"]
+})
 
-export default function handler(req, res) {
+// Helper method to wait for a middleware to execute before continuing
+// And to throw an error when an error happens in a middleware
+function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
+export default async function handler(req, res) {
+  await runMiddleware(req, res, cors)
     if (req.method != 'GET') {
       res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
     } else if (!parseInt(req.query.formsecret) || !parseInt(req.query.formid)) {

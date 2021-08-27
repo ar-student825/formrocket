@@ -12,6 +12,7 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
+    "cors": "^2.8.5",
     "next": "11.1.0",
     "next-auth": "^3.28.0",
     "quickmongo": "^3.0.2",
