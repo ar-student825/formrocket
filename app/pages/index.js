@@ -107,18 +107,20 @@ setTimeout(() => {
     <Script src="/files/onDashLoad.js" type="text/javascript" />
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name}</h1>
                     <p className={styles.description}>Manage your forms</p>
+                    <div className={styles.grid}>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
                      {data.forms.all ? data.forms.all.map(i => (
                        <>
-                       <Paper variant="outlined" elevation={3}>
+                       <div className={styles.card}>
                          <h3>{i.name}</h3>
                          <p><b>{i.formId}</b></p>
                          <p>{i.formSecret}</p>
-                       </Paper>
+                       </div>
                        </>
                      )) :
                      <p><b>Oops, </b> there aren&apos; any forms here yet.</p>
                      }
+                     </div>
                      <div id="fetchImageUrl" style={{display: 'none'}}>
                         {session.user.image}
                      </div>
