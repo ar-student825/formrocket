@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
           try {
-            res.redirect('https://ondone.formrocket.me/success' + req.query.message ? "/?message=" + req.query.message : "")
+            res.redirect(`https://ondone.formrocket.me/success${req.query.message != undefined ? "/?message=" + req.query.message : ""}`)
           } catch {
               res.json({warning: {code: "SUBMITTED_AND_REDIRECT_FAILED", data: "Expected to redirect to url after submitting, failed to redirect, but submitted form successfully"}})
           }
