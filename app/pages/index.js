@@ -115,6 +115,7 @@ setTimeout(() => {
                        <>
                        <div className={styles.card}>
                          <h3>{i.name}</h3>
+                         <p>Created {(i.createdAt ? (`${new Date().toLocaleDateString() != new Date().toLocaleDateString() ? new Date(i.createdAt).toLocaleDateString() : 'today'}`) : '')}</p>
                          <div className={styles.btns}>
                             <Tooltip title="View responses &amp; more">
                               <IconButton className={s.white} href={`https://gui.formrocket.me/?userId=${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}&formName=${i.name}&formId=${i.formId}&formSecret=${i.formSecret}&from=fr_dash`} target="_blank">
