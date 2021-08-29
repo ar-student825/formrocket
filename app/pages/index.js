@@ -119,16 +119,16 @@ setTimeout(() => {
                          <p>{i.formSecret}</p>
                          <div className={styles.btns}>
                             <Tooltip title="View responses &amp; more">
-                              <Iconbutton className={s.white} href={`https://gui.formrocket.me/?userId=${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}&formName=${i.name}&formId=${i.formId}&formSecret=${i.formSecret}&from=fr_dash`} target="_blank">
+                              <IconButton className={s.white} href={`https://gui.formrocket.me/?userId=${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}&formName=${i.name}&formId=${i.formId}&formSecret=${i.formSecret}&from=fr_dash`} target="_blank">
                                 <Info />
-                              </Iconbutton>
+                              </IconButton>
                             </Tooltip>
                             <Tooltip title="Edit form">
-                              <Iconbutton className={s.white} onClick={() => { 
+                              <IconButton className={s.white} onClick={() => { 
                               document ? (document.getElementById('comingSoonText').style.display = 'initial') : null
                             }}>
                                 <Settings />
-                              </Iconbutton>
+                              </IconButton>
                             </Tooltip>
                          </div>
                        </div>
