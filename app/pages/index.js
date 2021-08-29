@@ -10,6 +10,8 @@ import PreView from '@material-ui/icons/Visibility';
 import LogOut from '@material-ui/icons/ExitToApp';
 import NewForm from '@material-ui/icons/AddCircle';
 import { makeStyles } from '@material-ui/core/styles';
+import Info from '@material-ui/icons/Info';
+import Settings from '@material-ui/icons/Settings';
 import Axios from 'axios'
 import React from 'react'
 import Script from 'next/script'
@@ -115,6 +117,20 @@ setTimeout(() => {
                          <h3>{i.name}</h3>
                          <p><b>{i.formId}</b></p>
                          <p>{i.formSecret}</p>
+                         <div className={styles.btns}>
+                            <Tooltip title="View responses &amp; more">
+                              <Iconbutton className={s.white} href={`https://gui.formrocket.me/?userId=${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}&formName=${i.name}&formId=${i.formId}&formSecret=${i.formSecret}&from=fr_dash`} target="_blank">
+                                <Info />
+                              </Iconbutton>
+                            </Tooltip>
+                            <Tooltip title="Edit form">
+                              <Iconbutton className={s.white} onClick={() => { 
+                              document ? (document.getElementById('comingSoonText').style.display = 'initial') : null
+                            }}>
+                                <Settings />
+                              </Iconbutton>
+                            </Tooltip>
+                         </div>
                        </div>
                        </>
                      )) :
