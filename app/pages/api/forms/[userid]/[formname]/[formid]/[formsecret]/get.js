@@ -1,3 +1,5 @@
+const { Database } = require("quickmongo");
+const db = new Database(`mongodb+srv://arcodez:${process.env.MONGODB}@cluster0.06v7y.mongodb.net/formrocket?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
 import Cors from 'cors'
 const cors = Cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'HEAD'],
