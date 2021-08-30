@@ -40,6 +40,8 @@ export default async function handler(req, res) {
       db.get('users').then(users => {
         if (!users[req.query.userid]) {
           res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
+        } else if (users[req.query.userid].forms.all.filter(i => i.name == req.query.formname).length == 1) {
+          res.status(400).json({ error: {code: "FORM_EXISTS", data: "Expected formName not to be taken, formName is already taken on this account. Must be unique."}})
         } else {
           var formId = Math.floor(Math.random() * 99999999)
           var formSecret = Math.floor(Math.random() * 99999999)
