@@ -33,7 +33,7 @@ export default async function handler(req, res) {
       else if (!users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid).length == 1 || !users[req.query.userid].forms.all.filter(i => i.name == req.query.formname).length == 1 || !users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid)[0].formSecret == req.query.formsecret) {
         res.status(401).json({ error: {code: "INVALID_FORM", data: "Expected valid formId, formSecret and / or formName, got invalid"}})
       } else {
-      res.status(200).json(users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid)[0])
+      res.status(200).json({data: {form: users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid)[0]}})
     }
   })
   }
