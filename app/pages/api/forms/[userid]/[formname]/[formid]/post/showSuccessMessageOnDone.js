@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       else {
         var x = users[req.query.userid].forms.all
         try {
-        x.filter(i => i.formId == req.query.formid)[0].forms.all.push(req.body)
+        x.filter(i => i.formId == req.query.formid)[0].push(req.body)
         } finally {
           db.set(`users.${req.query.userid}.forms.all`, x).then(() => {
             try {
