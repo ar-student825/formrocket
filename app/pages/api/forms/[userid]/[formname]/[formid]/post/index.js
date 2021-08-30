@@ -36,14 +36,11 @@ export default async function handler(req, res) {
         res.status(401).json({ error: {code: "INVALID_FORM", data: "Expected valid formId and / or formName, got invalid"}})
       } else {
         var x = users[req.query.userid].forms.all
-        try {
         x.filter(i => i.formId == req.query.formid)[0].responses.all.push(req.body)
-        } finally {
           db.set(`users.${req.query.userid}.forms.all`, x).then(() => {
             res.json({success: true, postedData: req.body})
           })
         }
-  }
   })
   }
 }

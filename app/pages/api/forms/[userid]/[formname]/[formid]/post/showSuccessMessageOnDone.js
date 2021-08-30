@@ -37,9 +37,7 @@ export default async function handler(req, res) {
       }
       else {
         var x = users[req.query.userid].forms.all
-        try {
         x.filter(i => i.formId == req.query.formid)[0].responses.all.push(req.body)
-        } finally {
           db.set(`users.${req.query.userid}.forms.all`, x).then(() => {
             try {
               res.redirect(`https://ondone.formrocket.me/success${req.query.message != undefined ? "/?message=" + req.query.message : ""}`)
@@ -48,7 +46,6 @@ export default async function handler(req, res) {
             }
           })
         }        
-      }
   })
   }
   }
