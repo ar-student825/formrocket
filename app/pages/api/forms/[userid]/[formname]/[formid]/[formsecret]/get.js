@@ -23,33 +23,19 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, cors)
     if (req.method != 'GET') {
       res.status(400).json({ error: {code: "INVALID_METHOD", data: "Expected method POST, got " + req.method + "."} })
-    } else if (!parseInt(req.query.formsecret) || !parseInt(req.query.formid)) {
-      res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid formSecret and formKey, got invalid."} })
+    } else if (!parseInt(req.query.formsecret) || !parseInt(req.query.formid) || !parseInt(req.query.userid)) {
+      res.status(400).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected Number for formSecret, formId, and userId, got Other."} })
     } else {
-      res.status(200).json({
-        success: true,
-        data: {
-          form: {
-            name: null,
-            ownerId: null,
-            formId: parseInt(req.query.formid),
-            formSecret: parseInt(req.query.formsecret),
-            createdAt: null,
-            responses: {
-                total: 1,
-                all: [
-                    {
-                        id: "8f514ec8-4e5c-45d9-a731-7902586ed55a",
-                        data: {
-                            "myInput": "myValue"
-                        }
-                    }
-                ]
-            }
-          },
-          postedData: null
-        }
-      })
+      db.get('users').then(users => {
+      if (!users || !users[req.query.userid]) {
+        res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
+      }
+      else if (!users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid).length == 1 || !users[req.query.userid].forms.all.filter(i => i.name == req.query.formname).length == 1 || !users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid)[0].formSecret == req.query.formsecret) {
+        res.status(401).json({ error: {code: "INVALID_FORM", data: "Expected valid formId, formSecret and / or formName, got invalid"}})
+      } else {
+      res.status(200).json(users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid)[0])
     }
+  })
+  }
 }
     
