@@ -35,18 +35,14 @@ export default async function handler(req, res) {
       } else if (!users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid).length == 1 || !users[req.query.userid].forms.all.filter(i => i.name == req.query.formname).length == 1) {
         res.status(401).json({ error: {code: "INVALID_FORM", data: "Expected valid formId and / or formName, got invalid"}})
       } else {
-    res.status(200).json({
-      success: true,
-      data: {
-        form: {
-          name: null,
-          ownerId: null,
-          formId: parseInt(req.query.formid),
-          createdAt: null
-        },
-        postedData: req.body
-      }
-    })
+        var x = users[req.query.userid].forms.all
+        try {
+        x.filter(i => i.formId == req.query.formid)[0].forms.all.push(req.body)
+        } finally {
+          db.set(`users.${req.query.userid}.forms.all`, x).then(() => {
+            res.json({success: true, postedData: req.body})
+          })
+        }
   }
   })
   }
