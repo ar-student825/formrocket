@@ -32,7 +32,10 @@ export default async function handler(req, res) {
     db.get('users').then(users => {
       if (!users || !users[req.query.userid]) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
-      } else {
+      } else if (!users[req.query.userid].forms.all.filter(i => i.formId == req.query.formid).length == 1 || users[req.query.userid].forms.all.filter(i => i.name == req.query.formname).length == 1) {
+        res.status(401).json({ error: {code: "INVALID_FORM", data: "Expected valid formId and / or formName, got invalid"}})
+      }
+      else {
           try {
             res.redirect(`https://ondone.formrocket.me/success${req.query.message != undefined ? "/?message=" + req.query.message : ""}`)
           } catch {
