@@ -38,7 +38,9 @@ export default async function handler(req, res) {
         var x = users[req.query.userid].forms.all
         x.filter(i => i.formId == parseInt(req.query.formid))[0].responses.all.push({data: req.body, id: Math.floor(Math.random() * 999999)})
           db.set(`users.${req.query.userid}.forms.all`, x).then(r => {
+            db.set(`users`, r).then(j => {
             res.json({success: true, debug: true, postedData: req.body, u: r})
+            })
           })
         }
   })
