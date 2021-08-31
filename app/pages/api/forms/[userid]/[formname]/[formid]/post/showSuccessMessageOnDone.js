@@ -38,13 +38,15 @@ export default async function handler(req, res) {
       else {
         var x = users[req.query.userid].forms.all
         x.filter(i => i.formId == req.query.formid)[0].responses.all.push(req.body)
-          db.set(`users.${req.query.userid}.forms.all`, x).then(() => {
+        db.set(`users.${req.query.userid}.forms.all`, x).then(r => {
+          db.set(`users`, r).then(j => {
             try {
               res.redirect(`https://ondone.formrocket.me/success${req.query.message != undefined ? "/?message=" + req.query.message : ""}`)
             } catch {
                 res.json({warning: {code: "SUBMITTED_AND_REDIRECT_FAILED", data: "Expected to redirect to url after submitting, failed to redirect, but submitted form successfully"}})
             }
           })
+        })
         }        
   })
   }
