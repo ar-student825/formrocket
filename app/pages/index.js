@@ -53,12 +53,9 @@ setTimeout(() => {
         id: 0,
         forms: {
           all: [
-            {
-              name: 'Oops',
-              formId: 'Err',
-              formSecret: 'An error occured'
-            }
-          ]
+            
+          ],
+          total: 0
         }
       }
 
