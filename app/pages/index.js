@@ -104,7 +104,7 @@ setTimeout(() => {
     <>
     <main className={styles.main}>
     <Script src="/files/onDashLoad.js" type="text/javascript" />
-                    <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {session.user.name || 'your session has expired, please refresh'}</h1>
+                    <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {data.name || 'your session has expired, please refresh'}</h1>
                     <p className={styles.description}>Manage your forms</p>
                     <div className={styles.grid}>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
