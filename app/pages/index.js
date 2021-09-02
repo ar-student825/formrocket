@@ -111,7 +111,7 @@ setTimeout(() => {
                     <p className={styles.description}>Manage your forms</p>
                     <div className={styles.grid}>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
-                     {data.forms.all ? data.forms.all.map(i => (
+                     {data.data.forms && data.forms.all.length > 0 ? data.forms.all.map(i => (
                        <>
                        <div className={styles.card}>
                          <h3>{i.name}</h3>
@@ -133,7 +133,7 @@ setTimeout(() => {
                        </div>
                        </>
                      )) :
-                     <p><b>Oops, </b> there aren&apos; any forms here yet.</p>
+                     <p><b>Oops, </b> there aren&apos; any forms here yet. Create one below.</p>
                      }
                      </div>
                      <div id="fetchImageUrl" style={{display: 'none'}}>
