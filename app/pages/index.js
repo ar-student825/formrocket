@@ -142,7 +142,6 @@ setTimeout(() => {
                      <div className={styles.btns}>
                      <Tooltip title="Create new form">
                     <IconButton className={s.white} onClick={() => { 
-                      console.log('click new form btn')
                       document ? (document.getElementById('comingSoonText').style.display = 'initial') : null
                     }}>
                         <NewForm className={s.white} />
