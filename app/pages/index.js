@@ -49,7 +49,7 @@ setTimeout(() => {
       setDash(true)
     }).catch(e => {
       data = {
-        name: "Beta access not granted",
+        name: "...",
         id: 0,
         forms: {
           all: [
