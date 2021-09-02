@@ -111,7 +111,7 @@ setTimeout(() => {
                     <p className={styles.description}>Manage your forms</p>
                     <div className={styles.grid}>
                       {/*{JSON.stringify(session.user)} &amp; ID {session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}*/}
-                     {data.data.forms && data.forms.all.length > 0 ? data.forms.all.map(i => (
+                     {data.forms && data.forms.all.length > 0 ? data.forms.all.map(i => (
                        <>
                        <div className={styles.card}>
                          <h3>{i.name}</h3>
