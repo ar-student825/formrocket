@@ -160,7 +160,7 @@ setTimeout(() => {
                           if (xhr.readyState === 4 && xhr.status === 200) {
                               var json = JSON.parse(xhr.responseText);
                               window.location.reload()
-                          } else if (xhr.readyState == 4 && xhr.status != 200) {
+                          } else if (xhr.readyState == 4 && xhr.status != 200 && xhr.status != 0) {
                             document.getElementById('comingSoonText').innerHTML = 'An error occured. Status ' + xhr.status + ' & data ' + (xhr.responseText || 'N/A')
                             console.log(xhr)
                             document.getElementById('comingSoonText').style.display = 'initial'
