@@ -169,7 +169,9 @@ setTimeout(() => {
                       var data = JSON.stringify({"formName": document.getElementById('createFormName').value});
                       xhr.send(data);
                     }}>
-                      <input name="formName" id="createFormName" required /> 
+                      <h3>Pick a name for your form</h3>
+                      <p>Choose wisely- you can&apos;t change it later.</p>
+                      <input placeholder="" name="formName" id="createFormName" required /> 
                     </form>
                     <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
                   </main>
