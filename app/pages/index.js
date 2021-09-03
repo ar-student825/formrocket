@@ -153,7 +153,7 @@ setTimeout(() => {
                     </div>
                     <form id="create" onSubmit={() => {
                       var xhr = new XMLHttpRequest();
-                      var url = `https://www.formrocket.me/api/forms/${data.id}/new`;
+                      var url = `https://www.formrocket.me/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/new`;
                       xhr.open("POST", url, true);
                       xhr.setRequestHeader("Content-Type", "application/json");
                       xhr.onreadystatechange = function () {
