@@ -139,7 +139,7 @@ setTimeout(() => {
                      <div className={styles.btns}>
                      <Tooltip title="Create new form">
                     <IconButton className={s.white} onClick={() => { 
-                      document ? (document.getElementById('comingSoonText').style.display = 'initial') : null
+                      document ? (document.getElementById('create').style.display = 'initial') : null
                     }}>
                         <NewForm className={s.white} />
                     </IconButton>
@@ -151,6 +151,26 @@ setTimeout(() => {
                     </IconButton>
                     </Tooltip>
                     </div>
+                    <form id="create" onSubmit={() => {
+                      var xhr = new XMLHttpRequest();
+                      var url = `https://www.formrocket.me/api/forms/${data.id}/new`;
+                      xhr.open("POST", url, true);
+                      xhr.setRequestHeader("Content-Type", "application/json");
+                      xhr.onreadystatechange = function () {
+                          if (xhr.readyState === 4 && xhr.status === 200) {
+                              var json = JSON.parse(xhr.responseText);
+                              window.location.reload()
+                          } else {
+                            document.getElementById('comingSoonText').innerHTML = 'An error occured. Status ' + xhr.status + ' & data ' + (xhr.responseText || 'N/A')
+                            console.log(xhr)
+                            document.getElementById('comingSoonText').style.display = 'initial'
+                          }
+                      };
+                      var data = JSON.stringify({"formName": document.getElementById('createFormName').value});
+                      xhr.send(data);
+                    }}>
+                      <input name="formName" id="createFormName" required /> 
+                    </form>
                     <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
                   </main>
     </>
