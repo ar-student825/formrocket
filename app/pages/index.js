@@ -96,7 +96,6 @@ setTimeout(() => {
 
 
       </main>
-
     </div>
   )
   }
@@ -193,8 +192,5 @@ setTimeout(() => {
     </>
   )
   }
-
-   
-
 }
 
