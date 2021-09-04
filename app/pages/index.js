@@ -152,7 +152,16 @@ setTimeout(() => {
                     </IconButton>
                     </Tooltip>
                     </div>
-                    <form id="create" style={{display: 'none'}} action="" onSubmit={() => {
+                    <div id="create" style={{display: 'none'}}>
+                      <h3>Pick a name for your form</h3>
+                      <p>Choose wisely- you can&apos;t change it later.</p>
+                      <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" maxLength="15" className={styles.input} type="text" required /> 
+                      <input value="Create" className={styles.inputSubmit} type="submit" onClick={() => {
+                      var name = document.getElementById('createFormName').value
+                      if (name.length > 15 || name.length < 3) {
+                        document.getElementById('comingSoonText').innerHTML = 'Form name must be over 3 characters and less than 15 characters. You are currently using ' + name.length + '.'
+                        document.getElementById('comingSoonText').style.display = 'initial'
+                      }
                       var xhr = new XMLHttpRequest();
                       var url = `https://www.formrocket.me/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/new`;
                       xhr.open("POST", url, true);
@@ -167,14 +176,10 @@ setTimeout(() => {
                             document.getElementById('comingSoonText').style.display = 'initial'
                           }
                       };
-                      var data = JSON.stringify({"formName": document.getElementById('createFormName').value});
+                      var data = JSON.stringify({"formName": name});
                       xhr.send(data)
-                    }}>
-                      <h3>Pick a name for your form</h3>
-                      <p>Choose wisely- you can&apos;t change it later.</p>
-                      <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" minLength="3" maxLength="15" className={styles.input} type="text" required /> 
-                      <input value="Create" className={styles.inputSubmit} type="submit" />
-                    </form>
+                    }} />
+                    </div>
                     <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
                   </main>
     </>
