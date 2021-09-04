@@ -112,7 +112,7 @@ setTimeout(() => {
                        <>
                        <div className={styles.card}>
                          <h3>{i.name}</h3>
-                         <Tooltip title={i.createdAt ? new Date(i.createdAt) : 'FormRocket was unable to parse this date.'}>
+                         <Tooltip title={i.createdAt ? new Date(i.createdAt).toString() : 'FormRocket was unable to parse this date.'}>
                          <p>Created {i.createdAt != null ? (`${new Date().toLocaleDateString() != new Date(i.createdAt).toLocaleDateString() ? new Date(i.createdAt).toLocaleDateString() : 'today'}`) : 'unknown time'}</p>
                          </Tooltip>
                          <div className={styles.btns}>
