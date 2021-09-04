@@ -102,7 +102,7 @@ setTimeout(() => {
     }
     if (!loading && dash) {
   return (
-    <>
+  <>
     <main className={styles.main}>
     <Script src="/files/onDashLoad.js" type="text/javascript" />
                     <h1 className={styles.title}><div id="avatarContainer"></div> Welcome, {data.name || 'your session has expired, please refresh'}</h1>
