@@ -24,8 +24,8 @@ const Styles = makeStyles((theme) => ({
 }));
 export default function Home() {
   let [dash, setDash] = React.useState(false)
-  const s = Styles()
-  useEffect(()=>{
+  const s = Styles();
+  useEffect(()=> {
     setTimeout(()=>{
     if (document.getElementById('imagecontainer')) {
       document.getElementById('titleMain').style.display = "initial"
@@ -167,11 +167,11 @@ setTimeout(() => {
                           }
                       };
                       var data = JSON.stringify({"formName": document.getElementById('createFormName').value});
-                      xhr.send(data);
+                      xhr.send(data)
                     }}>
                       <h3>Pick a name for your form</h3>
                       <p>Choose wisely- you can&apos;t change it later.</p>
-                      <input placeholder="" name="formName" id="createFormName" required /> 
+                      <input placeholder={} name="formName" id="createFormName" required /> 
                     </form>
                     <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
                   </main>
