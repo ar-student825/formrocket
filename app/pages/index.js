@@ -155,11 +155,14 @@ setTimeout(() => {
                     <div id="create" style={{display: 'none'}}>
                       <h3>Pick a name for your form</h3>
                       <p>Choose wisely- you can&apos;t change it later.</p>
-                      <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" maxLength="15" className={styles.input} type="text" required /> 
+                      <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" maxLength="23" className={styles.input} type="text" required /> 
                       <input value="Create" className={styles.inputSubmit} type="submit" onClick={() => {
                       var name = document.getElementById('createFormName').value
-                      if (name.length > 15 || name.length < 3) {
-                        document.getElementById('comingSoonText').innerHTML = 'Form name must be over 3 characters and less than 15 characters. You are currently using ' + name.length + '.'
+                      if (name.length <= 0) {
+                        document.getElementById('comingSoonText').innerHTML = 'Form name is required.'
+                        document.getElementById('comingSoonText').style.display = 'initial'
+                      } else if (name.length > 23 || name.length < 3) {
+                        document.getElementById('comingSoonText').innerHTML = 'Form name must be over 3 characters and less than 23 characters. You are currently using ' + name.length + '.'
                         document.getElementById('comingSoonText').style.display = 'initial'
                       } else {
                       var xhr = new XMLHttpRequest();
