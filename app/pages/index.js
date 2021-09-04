@@ -122,7 +122,7 @@ setTimeout(() => {
                             </Tooltip>
                             <Tooltip title="Configure form">
                               <IconButton className={s.white} onClick={() => { 
-                              alert(`Add this form to your website (HTML) & show success message when done:\n<form method="POST" action="https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post/showSuccessMessageOnDone">\n<input name="example" placeholder="example input" />\n</form>\nOptionally you can add the ?message= paramater to the action URL to customize the success message.\n\nOr submit via the API & get JSON response:\nPOST https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post\n\nRead the documentation for everything you can do with our API here:\nhttps://api.formrocket.me`)
+                              alert(`Add this form to your website (HTML) & show success message when done:\n<form method="POST" action="https://www.formrocket.me/api/${i.ownerId}/${i.name}/${i.formId}/post/showSuccessMessageOnDone">\n<input name="example" placeholder="example input" />\n</form>\nOptionally you can add the ?message= paramater to the action URL to customize the success message.\n\nOr submit via the API & get JSON response:\nPOST https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post\n\nRead the documentation for everything you can do with our API here:\nhttps://api.formrocket.me`)
                             }}>
                                 <Settings />
                               </IconButton>
