@@ -164,8 +164,8 @@ setTimeout(() => {
                     </IconButton>
                     </Tooltip>
 
-                    <Tooltip title="Export my data as JSON">
-                    <IconButton className={s.white} href={`/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/info`} download>
+                    <Tooltip title="Export data as JSON">
+                    <IconButton className={s.white} href={`/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/info`} download="data.json">
                         <Export className={s.white} />
                     </IconButton>
                     </Tooltip>
