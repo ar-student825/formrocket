@@ -161,7 +161,7 @@ setTimeout(() => {
                       if (name.length > 15 || name.length < 3) {
                         document.getElementById('comingSoonText').innerHTML = 'Form name must be over 3 characters and less than 15 characters. You are currently using ' + name.length + '.'
                         document.getElementById('comingSoonText').style.display = 'initial'
-                      }
+                      } else {
                       var xhr = new XMLHttpRequest();
                       var url = `https://www.formrocket.me/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/new`;
                       xhr.open("POST", url, true);
@@ -178,6 +178,7 @@ setTimeout(() => {
                       };
                       var data = JSON.stringify({"formName": name});
                       xhr.send(data)
+                    }
                     }} />
                     </div>
                     <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
