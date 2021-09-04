@@ -123,10 +123,11 @@ setTimeout(() => {
                             <Tooltip title="Configure form">
                               <IconButton className={s.white} onClick={() => { 
                               alert(`
-                              Add this form to your website (HTML): 
+                              Add this form to your website (HTML) & show success message when done: 
                               <form method="POST" action="https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post/showSuccessMessageOnDone">
                                 <input name="example" placeholder="example input" />
                               </form>
+                              Optionally you can add the ?message= paramater to the action URL to customize the success message.
                               
                               Or submit via the API & get JSON response: 
                               POST https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post
