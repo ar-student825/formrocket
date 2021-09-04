@@ -120,9 +120,20 @@ setTimeout(() => {
                                 <Info />
                               </IconButton>
                             </Tooltip>
-                            <Tooltip title="Edit form">
+                            <Tooltip title="Configure form">
                               <IconButton className={s.white} onClick={() => { 
-                              document ? (document.getElementById('comingSoonText').style.display = 'initial') : null
+                              alert(`
+                              Add this form to your website (HTML): 
+                              <form method="POST" action="https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post/showSuccessMessageOnDone">
+                                <input name="example" placeholder="example input" />
+                              </form>
+                              
+                              Or submit via the API & get JSON response: 
+                              POST https://www.formrocket.me/api/${i.ownerId}/${i.formName}/${i.formId}/post
+
+                              Read the documentation for everything you can do with our API here:
+                              https://api.formrocket.me
+                              `)
                             }}>
                                 <Settings />
                               </IconButton>
