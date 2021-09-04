@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
         db.set('users.33383463', {
-      name: "AR",
+      name: "youngchief btw ツ",
       image: "https://avatars.githubusercontent.com/u/33383463?v=4",
       id: 33383463,
       createdAt: +Date.now(),
