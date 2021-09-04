@@ -166,7 +166,7 @@ setTimeout(() => {
 
                     <Tooltip title="Export &amp; download data as JSON">
                     <IconButton onClick={() => {
-                      document.getElementById('comingSoonText').innerHTML = '<b>Never </b>share this file with anyone!'
+                      document.getElementById('comingSoonText').innerHTML = 'Downloading... <b>Never </b>share this file with anyone!'
                       document.getElementById('comingSoonText').style.display = 'initial'
                     }} className={s.white} href={`/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/info`} download="data.json">
                         <Export className={s.white} />
