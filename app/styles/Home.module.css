@@ -102,3 +102,12 @@
     flex-direction: column;
   }
 }
+
+.input {
+  border: none;
+  outline: none;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  padding: 7px;
+  border-radius: 3px;
+}
