@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       if (!user) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
-        db.set('users.33383463', {
+       /* db.set('users.33383463', {
       name: "youngchief btw ツ",
       image: "https://avatars.githubusercontent.com/u/33383463?v=4",
       id: 33383463,
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         total: 0,
         all: []
       }
-    })
+    })*/
         
     res.status(200).json({name: user.name, image: user.image, id: user.id, createdAt: user.createdAt, forms: (session && session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] == user.id) ? user.forms : "UNAUTHORIZED"})
   }
