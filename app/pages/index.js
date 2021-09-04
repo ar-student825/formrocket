@@ -155,7 +155,9 @@ setTimeout(() => {
                     </div>
                     <div id="create" style={{display: 'none'}}>
                       <h3>Pick a name for your form</h3>
+                      <Tooltip title="You cannot change your form's name once it has been made, because your submission URL would change everytime the form name is changed, which would result in broken code.">
                       <p>Choose wisely- you can&apos;t change it later.</p>
+                      </Tooltip>
                       <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" maxLength="23" className={styles.input} type="text" required /> 
                       <input id="createButton" value="Create" className={styles.inputSubmit} type="submit" onClick={() => {
                       var name = document.getElementById('createFormName').value
