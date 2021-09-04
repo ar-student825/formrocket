@@ -172,7 +172,8 @@ setTimeout(() => {
                     }}>
                       <h3>Pick a name for your form</h3>
                       <p>Choose wisely- you can&apos;t change it later.</p>
-                      <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" min="3" max="15" className={styles.input} required /> 
+                      <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" minLength="3" maxLength="15" className={styles.input} type="text" required /> 
+                      <input value="Create" className={styles.inputSubmit} type="submit" />
                     </form>
                     <p id="comingSoonText" style={{display: 'none'}}>The feature you&apos;re looking for is coming soon. (CE00001)</p>
                   </main>
