@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Info from '@material-ui/icons/Info';
 import Settings from '@material-ui/icons/Settings';
 import Docs from '@material-ui/icons/MenuBook';
+import Export from '@material-ui/icons/Storage';
 import Axios from 'axios'
 import React from 'react'
 import Script from 'next/script'
@@ -162,6 +163,13 @@ setTimeout(() => {
                         <LogOut className={s.white} />
                     </IconButton>
                     </Tooltip>
+
+                    <Tooltip title="Export my data as JSON">
+                    <IconButton className={s.white} href={`/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/info`} download>
+                        <Export className={s.white} />
+                    </IconButton>
+                    </Tooltip>
+
                     </div>
                     <div id="create" style={{display: 'none'}}>
                       <h3>Pick a name for your form</h3>
