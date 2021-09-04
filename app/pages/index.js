@@ -12,6 +12,7 @@ import NewForm from '@material-ui/icons/AddCircle';
 import { makeStyles } from '@material-ui/core/styles';
 import Info from '@material-ui/icons/Info';
 import Settings from '@material-ui/icons/Settings';
+import Docs from '@material-ui/icons/MenuBook';
 import Axios from 'axios'
 import React from 'react'
 import Script from 'next/script'
@@ -87,11 +88,18 @@ setTimeout(() => {
                         <LogIn className={s.white} />
                     </IconButton>
                     </Tooltip>
-                    <Tooltip title="View demo" onClick={() => {
+                    <Tooltip title="View demo">
+                    <IconButton className={s.white} onClick={() => {
                       window.location.href = 'https://ar-dev.cf/to/frd'
                     }}>
-                    <IconButton className={s.white}>
                         <PreView className={s.white} />
+                    </IconButton>
+                    </Tooltip>
+                    <Tooltip title="View documentation">
+                    <IconButton className={s.white} onClick={() => {
+                      window.location.href = 'https://docs.formrocket.me'
+                    }}>
+                        <Docs className={s.white} />
                     </IconButton>
                     </Tooltip>
                     </div>
