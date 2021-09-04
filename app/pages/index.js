@@ -158,7 +158,9 @@ setTimeout(() => {
                       <Tooltip title="You cannot change your form's name once it has been made, because your submission URL would change everytime the form name is changed, which would result in broken code.">
                       <p>Choose wisely- you can&apos;t change it later.</p>
                       </Tooltip>
+                      <Tooltip title="Enter a unique name that will help you identify this form. Must be over 3 characters and less than 23 characters.">
                       <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" maxLength="23" className={styles.input} type="text" required /> 
+                      </Tooltip>
                       <input id="createButton" value="Create" className={styles.inputSubmit} type="submit" onClick={() => {
                       var name = document.getElementById('createFormName').value
                       if (name.length <= 0) {
