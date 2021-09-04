@@ -156,7 +156,7 @@ setTimeout(() => {
                       <h3>Pick a name for your form</h3>
                       <p>Choose wisely- you can&apos;t change it later.</p>
                       <input placeholder={exampleNames[Math.floor(exampleNames.length * Math.random())]} name="formName" id="createFormName" maxLength="23" className={styles.input} type="text" required /> 
-                      <input value="Create" className={styles.inputSubmit} type="submit" onClick={() => {
+                      <input id="createButton" value="Create" className={styles.inputSubmit} type="submit" onClick={() => {
                       var name = document.getElementById('createFormName').value
                       if (name.length <= 0) {
                         document.getElementById('comingSoonText').innerHTML = 'Form name is required.'
@@ -165,6 +165,7 @@ setTimeout(() => {
                         document.getElementById('comingSoonText').innerHTML = 'Form name must be over 3 characters and less than 23 characters. You are currently using ' + name.length + '.'
                         document.getElementById('comingSoonText').style.display = 'initial'
                       } else {
+                        document.getElementById('createButton').innerHTML = 'Creating...'
                       var xhr = new XMLHttpRequest();
                       var url = `https://www.formrocket.me/api/forms/${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}/new`;
                       xhr.open("POST", url, true);
@@ -174,6 +175,7 @@ setTimeout(() => {
                               var json = JSON.parse(xhr.responseText);
                               window.location.reload()
                           } else if (xhr.readyState == 4 && xhr.status != 200 && xhr.status != 0) {
+                            document.getElementById('createButton').innerHTML = 'Create'
                             document.getElementById('comingSoonText').innerHTML = 'An error occured. Status ' + xhr.status + ' & data ' + (xhr.responseText || 'N/A')
                             console.log(xhr)
                             document.getElementById('comingSoonText').style.display = 'initial'
