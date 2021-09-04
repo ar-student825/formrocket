@@ -34,18 +34,17 @@ export default async function handler(req, res) {
       if (!user) {
         res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
       } else {
-        /*
-        db.set('users.74219764', {
+        db.set('users.33383463', {
       name: "AR",
-      image: "https://avatars.githubusercontent.com/u/74219764?v=4",
-      id: 74219764,
+      image: "https://avatars.githubusercontent.com/u/33383463?v=4",
+      id: 33383463,
       createdAt: +Date.now(),
       forms: {
         total: 0,
         all: []
       }
     })
-        */
+        
     res.status(200).json({name: user.name, image: user.image, id: user.id, createdAt: user.createdAt, forms: (session && session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] == user.id) ? user.forms : "UNAUTHORIZED"})
   }
   })
