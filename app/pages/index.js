@@ -126,7 +126,7 @@ setTimeout(() => {
                          <p>Created {i.createdAt != null ? (`${new Date().toLocaleDateString() != new Date(i.createdAt).toLocaleDateString() ? new Date(i.createdAt).toLocaleDateString() : 'today'}`) : 'unknown time'}</p>
                          </Tooltip>
                          <div className={styles.btns}>
-                            <Tooltip title="View responses &amp; more">
+                            <Tooltip title="View responses &amp; information">
                               <IconButton className={s.white} href={`https://gui.formrocket.me/?userId=${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}&formName=${i.name}&formId=${i.formId}&formSecret=${i.formSecret}&from=fr_dash`} target="_blank">
                                 <Info />
                               </IconButton>
