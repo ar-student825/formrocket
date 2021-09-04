@@ -113,7 +113,9 @@ setTimeout(() => {
                        <>
                        <div className={styles.card}>
                          <h3>{i.name}</h3>
-                         <p title={i.createdAt ? new Date(i.createdAt) : 'FormRocket was unable to parse this date.'}>Created {i.createdAt != null ? (`${new Date().toLocaleDateString() != new Date(i.createdAt).toLocaleDateString() ? new Date(i.createdAt).toLocaleDateString() : 'today'}`) : 'unknown time'}</p>
+                         <Tooltip title={i.createdAt ? new Date(i.createdAt) : 'FormRocket was unable to parse this date.'}>
+                         <p>Created {i.createdAt != null ? (`${new Date().toLocaleDateString() != new Date(i.createdAt).toLocaleDateString() ? new Date(i.createdAt).toLocaleDateString() : 'today'}`) : 'unknown time'}</p>
+                         </Tooltip>
                          <div className={styles.btns}>
                             <Tooltip title="View responses &amp; more">
                               <IconButton className={s.white} href={`https://gui.formrocket.me/?userId=${session.user.image.replace('https://avatars.githubusercontent.com/u/', '').split('?')[0]}&formName=${i.name}&formId=${i.formId}&formSecret=${i.formSecret}&from=fr_dash`} target="_blank">
