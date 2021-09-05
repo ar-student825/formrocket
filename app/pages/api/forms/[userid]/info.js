@@ -2,7 +2,7 @@ const { Database } = require("quickmongo");
 import { getSession } from 'next-auth/client'
 import Cors from 'cors'
 const db = new Database(`mongodb+srv://arcodez:${process.env.MONGODB}@cluster0.06v7y.mongodb.net/formrocket?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
-
+const axios = require('axios')
 
 
 // Initializing the cors middleware
@@ -32,7 +32,29 @@ export default async function handler(req, res) {
   } else {
     db.get('users.' + req.query.userid).then(user => {
       if (!user) {
-        res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
+        function reject() {
+          res.status(404).json({ error: {code: "INVALID_CREDENTIALS", data: "Expected valid user, got invalid"}})
+        }
+        if (!parseInt(req.query.userid)) reject() 
+        else {
+          if (session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] == req.query.userid) {
+          axios.get('https://api.github.com/user/' + parseInt(req.query.userid)).then(res => {
+            var data = res.data
+            db.set('users.' + data.id.toString(), {
+              name: data.name || data.login,
+              image: data.avatar_url,
+              id: data.id,
+              createdAt: +Date.now(),
+              forms: {
+                total: 0,
+                all: []
+              }
+            }).then(u => {
+              res.status(200).json({justCreated: true, name: u.name, image: u.image, id: u.id, createdAt: u.createdAt, forms: (session && session.user.image.replace('https://avatars.githubusercontent.com/u/','').split('?')[0] == u.id) ? u.forms : "UNAUTHORIZED"})
+            })
+          }).catch(() => reject())
+        } else reject()
+        }
       } else {
        /* db.set('users.33383463', {
       name: "youngchief btw ツ",
